@@ -15,6 +15,15 @@ namespace Tennis_Kata
         }
 
         [TestMethod]
+        public void Fifteen_All()
+        {
+            FirstPlayerGetPointTimes(1);
+            SecondPlayerGetPointTimes(1);
+
+            ScoreShouldBe("Fifteen_All");
+        }
+
+        [TestMethod]
         public void Fifteen_Love()
         {
             FirstPlayerGetPointTimes(1);

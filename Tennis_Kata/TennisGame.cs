@@ -21,8 +21,10 @@ namespace Tennis_Kata
             {
                 return $"{_scoreLookUp[_firstPlayerScore]}_{_scoreLookUp[_secondPlayerScore]}";
             }
-
-            return "Love_All";
+            else
+            {
+                return $"{_scoreLookUp[_firstPlayerScore]}_All";
+            }
         }
 
         public void FirstPlayerGetPoint()
