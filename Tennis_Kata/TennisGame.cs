@@ -14,6 +14,10 @@
             {
                 return "Thirty_Love";
             }
+            if (_FirstPlayerScore == 3)
+            {
+                return "Forty_Love";
+            }
             return "Love_All";
         }
 

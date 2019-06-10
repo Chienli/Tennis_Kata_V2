@@ -29,6 +29,15 @@ namespace Tennis_Kata
 
             ScoreShouldBe("Thirty_Love");
         }
+        [TestMethod]
+        public void Forty_Love()
+        {
+            _tennisGame.FirstPlayerGetPoint();
+            _tennisGame.FirstPlayerGetPoint();
+            _tennisGame.FirstPlayerGetPoint();
+
+            ScoreShouldBe("Forty_Love");
+        }
         private void ScoreShouldBe(string expected)
         {
             var score = _tennisGame.Score();
