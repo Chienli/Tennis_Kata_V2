@@ -10,7 +10,10 @@
             {
                 return "Fifteen_Love";
             }
-
+            if (_FirstPlayerScore == 2)
+            {
+                return "Thirty_Love";
+            }
             return "Love_All";
         }
 
