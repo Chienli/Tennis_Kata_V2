@@ -17,31 +17,39 @@ namespace Tennis_Kata
         [TestMethod]
         public void Fifteen_Love()
         {
-            _tennisGame.FirstPlayerGetPoint();
+            FirstPlayerGetPointTimes(1);
+
             ScoreShouldBe("Fifteen_Love");
         }
 
         [TestMethod]
         public void Thirty_Love()
         {
-            _tennisGame.FirstPlayerGetPoint();
-            _tennisGame.FirstPlayerGetPoint();
+            FirstPlayerGetPointTimes(2);
 
             ScoreShouldBe("Thirty_Love");
         }
+
         [TestMethod]
         public void Forty_Love()
         {
-            _tennisGame.FirstPlayerGetPoint();
-            _tennisGame.FirstPlayerGetPoint();
-            _tennisGame.FirstPlayerGetPoint();
+            FirstPlayerGetPointTimes(3);
 
             ScoreShouldBe("Forty_Love");
         }
+
+        private void FirstPlayerGetPointTimes(int times)
+        {
+            for (var i = 0; i < times; i++)
+            {
+                _tennisGame.FirstPlayerGetPoint();
+            }
+        }
+
         private void ScoreShouldBe(string expected)
         {
             var score = _tennisGame.Score();
-            Assert.AreEqual(expected , score);
+            Assert.AreEqual(expected, score);
         }
     }
 }
