@@ -14,18 +14,17 @@ namespace Tennis_Kata
             ScoreShouldBe("Love_All");
         }
 
+        [TestMethod]
+        public void Fifteen_Love()
+        {
+            _tennisGame.FirstPlayerGetPoint();
+            ScoreShouldBe("Fifteen_Love");
+        }
+
         private void ScoreShouldBe(string expected)
         {
             var score = _tennisGame.Score();
             Assert.AreEqual(expected , score);
-        }
-    }
-
-    internal class TennisGame
-    {
-        public string Score()
-        {
-            return "Love_All";
         }
     }
 }
