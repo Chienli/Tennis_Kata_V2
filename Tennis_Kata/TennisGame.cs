@@ -29,6 +29,10 @@ namespace Tennis_Kata
             {
                 return "Love_Thirty";
             }
+            if (_secondPlayerScore == 3)
+            {
+                return "Love_Forty";
+            }
             return "Love_All";
         }
 
