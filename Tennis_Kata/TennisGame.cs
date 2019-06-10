@@ -23,6 +23,10 @@ namespace Tennis_Kata
             }
             else
             {
+                if (_firstPlayerScore >= 3)
+                {
+                    return "Deuce";
+                }
                 return $"{_scoreLookUp[_firstPlayerScore]}_All";
             }
         }
