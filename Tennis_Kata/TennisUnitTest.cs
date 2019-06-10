@@ -38,6 +38,14 @@ namespace Tennis_Kata
             ScoreShouldBe("Forty_Love");
         }
 
+        [TestMethod]
+        public void Love_Fifteen()
+        {
+            _tennisGame.SecondPlayerGetPoint();
+
+            ScoreShouldBe("Love_Fifteen");
+        }
+
         private void FirstPlayerGetPointTimes(int times)
         {
             for (var i = 0; i < times; i++)
