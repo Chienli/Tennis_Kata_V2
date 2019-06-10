@@ -41,7 +41,7 @@ namespace Tennis_Kata
         [TestMethod]
         public void Love_Fifteen()
         {
-            _tennisGame.SecondPlayerGetPoint();
+            SecondPlayerGetPointTimes(1);
 
             ScoreShouldBe("Love_Fifteen");
         }
@@ -49,8 +49,7 @@ namespace Tennis_Kata
         [TestMethod]
         public void Love_Thirty()
         {
-            _tennisGame.SecondPlayerGetPoint();
-            _tennisGame.SecondPlayerGetPoint();
+            SecondPlayerGetPointTimes(2);
 
             ScoreShouldBe("Love_Thirty");
         }
@@ -58,11 +57,17 @@ namespace Tennis_Kata
         [TestMethod]
         public void Love_Forty()
         {
-            _tennisGame.SecondPlayerGetPoint();
-            _tennisGame.SecondPlayerGetPoint();
-            _tennisGame.SecondPlayerGetPoint();
+            SecondPlayerGetPointTimes(3);
 
             ScoreShouldBe("Love_Forty");
+        }
+
+        private void SecondPlayerGetPointTimes(int times)
+        {
+            for (var i = 0; i < times; i++)
+            {
+                _tennisGame.SecondPlayerGetPoint();
+            }
         }
 
         private void FirstPlayerGetPointTimes(int times)
