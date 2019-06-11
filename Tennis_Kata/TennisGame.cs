@@ -6,12 +6,14 @@ namespace Tennis_Kata
     internal class TennisGame
     {
         private readonly string _firstPlayerName;
+        private readonly string _secondPlayerName;
         private int _firstPlayerScore;
         private int _secondPlayerScore;
 
-        public TennisGame(string firstPlayerName)
+        public TennisGame(string firstPlayerName, string secondPlayerName)
         {
             this._firstPlayerName = firstPlayerName;
+            _secondPlayerName = secondPlayerName;
         }
 
         private Dictionary<int, string> _scoreLookUp = new Dictionary<int, string>
@@ -30,7 +32,12 @@ namespace Tennis_Kata
                 {
                     if (Math.Abs(_firstPlayerScore - _secondPlayerScore) == 1)
                     {
-                        return "Guy_Adv";
+                        if (_firstPlayerScore > _secondPlayerScore)
+                        {
+                            return $"{_firstPlayerName}_Adv";
+                        }
+
+                        return $"{_secondPlayerName}_Adv";
                     }
                 }
 

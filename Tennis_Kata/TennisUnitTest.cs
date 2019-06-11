@@ -6,7 +6,7 @@ namespace Tennis_Kata
     [TestClass]
     public class TennisUnitTest
     {
-        private readonly TennisGame _tennisGame = new TennisGame("Guy");
+        private readonly TennisGame _tennisGame = new TennisGame("Guy", "Jay");
 
         [TestMethod]
         public void Love_All()
@@ -48,6 +48,15 @@ namespace Tennis_Kata
             SecondPlayerGetPointTimes(3);
 
             ScoreShouldBe("Guy_Adv");
+        }
+
+        [TestMethod]
+        public void SecondPlayer_Adv()
+        {
+            FirstPlayerGetPointTimes(3);
+            SecondPlayerGetPointTimes(4);
+
+            ScoreShouldBe("Jay_Adv");
         }
 
         [TestMethod]
