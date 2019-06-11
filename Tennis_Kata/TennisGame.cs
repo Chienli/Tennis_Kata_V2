@@ -16,7 +16,7 @@ namespace Tennis_Kata
             _secondPlayerName = secondPlayerName;
         }
 
-        private Dictionary<int, string> _scoreLookUp = new Dictionary<int, string>
+        private readonly Dictionary<int, string> _scoreLookUp = new Dictionary<int, string>
         {
             {0,"Love" },
             {1,"Fifteen"},
@@ -26,28 +26,30 @@ namespace Tennis_Kata
 
         public string Score()
         {
-            if (_firstPlayerScore != _secondPlayerScore)
-            {
-                if (_firstPlayerScore > 3 || _secondPlayerScore > 3)
-                {
-                    if (Math.Abs(_firstPlayerScore - _secondPlayerScore) == 1)
-                    {
-                        return $"{GetAdvanceName()}_Adv";
-                    }
+            return IsDiff() ? IsGamePoint()
+                    ? IsAdvance() ? $"{GetAdvanceName()}_Adv" : $"{GetAdvanceName()}_Win"
+                    : $"{_scoreLookUp[_firstPlayerScore]}_{_scoreLookUp[_secondPlayerScore]}" :
+                IsDeuce() ? "Deuce" : $"{_scoreLookUp[_firstPlayerScore]}_All";
+        }
 
-                    return $"{GetAdvanceName()}_Win";
-                }
+        private bool IsDeuce()
+        {
+            return _firstPlayerScore >= 3;
+        }
 
-                return $"{_scoreLookUp[_firstPlayerScore]}_{_scoreLookUp[_secondPlayerScore]}";
-            }
-            else
-            {
-                if (_firstPlayerScore >= 3)
-                {
-                    return "Deuce";
-                }
-                return $"{_scoreLookUp[_firstPlayerScore]}_All";
-            }
+        private bool IsAdvance()
+        {
+            return Math.Abs(_firstPlayerScore - _secondPlayerScore) == 1;
+        }
+
+        private bool IsGamePoint()
+        {
+            return _firstPlayerScore > 3 || _secondPlayerScore > 3;
+        }
+
+        private bool IsDiff()
+        {
+            return _firstPlayerScore != _secondPlayerScore;
         }
 
         private string GetAdvanceName()
