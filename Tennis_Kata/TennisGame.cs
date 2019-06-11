@@ -34,6 +34,8 @@ namespace Tennis_Kata
                     {
                         return $"{GetAdvanceName()}_Adv";
                     }
+
+                    return $"{GetAdvanceName()}_Win";
                 }
 
                 return $"{_scoreLookUp[_firstPlayerScore]}_{_scoreLookUp[_secondPlayerScore]}";
