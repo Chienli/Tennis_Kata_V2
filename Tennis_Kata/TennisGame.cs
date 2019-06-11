@@ -32,12 +32,7 @@ namespace Tennis_Kata
                 {
                     if (Math.Abs(_firstPlayerScore - _secondPlayerScore) == 1)
                     {
-                        if (_firstPlayerScore > _secondPlayerScore)
-                        {
-                            return $"{_firstPlayerName}_Adv";
-                        }
-
-                        return $"{_secondPlayerName}_Adv";
+                        return $"{GetAdvanceName()}_Adv";
                     }
                 }
 
@@ -51,6 +46,11 @@ namespace Tennis_Kata
                 }
                 return $"{_scoreLookUp[_firstPlayerScore]}_All";
             }
+        }
+
+        private string GetAdvanceName()
+        {
+            return _firstPlayerScore > _secondPlayerScore ? _firstPlayerName : _secondPlayerName;
         }
 
         public void FirstPlayerGetPoint()
